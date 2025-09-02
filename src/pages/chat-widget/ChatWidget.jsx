@@ -140,7 +140,7 @@ const ChatWidget = () => {
 
     return (
         <div className="relative">
-            {/* Floating Chat Trigger Button */}
+
             <Dialog>
                 <DialogTrigger asChild>
                     <button
@@ -206,6 +206,8 @@ const ChatWidget = () => {
 };
 
 export default ChatWidget;
+
+
 
 
 // import React, { useState, useRef, useEffect } from 'react';

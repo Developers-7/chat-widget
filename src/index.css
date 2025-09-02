@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* CSS Reset for body and html */
+body, html {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
