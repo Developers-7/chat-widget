@@ -10,17 +10,27 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import ChatWidget from "./pages/chat-widget/ChatWidget";
 
+// Immediately run when script is loaded
 (function init() {
-    let root = document.getElementById("chat-widget-root");
+    // Check if we already injected the widget
+    let container = document.getElementById("chat-widget-root");
+    if (!container) {
+        container = document.createElement("div");
+        container.id = "chat-widget-root";
 
-    if (!root) {
-        root = document.createElement("div");
-        root.id = "chat-widget-root";
-        document.body.appendChild(root);
+        // Position fixed in bottom-right
+        container.style.position = "fixed";
+        container.style.bottom = "20px";
+        container.style.right = "20px";
+        container.style.zIndex = "9999";
+
+        document.body.appendChild(container);
     }
 
-    const rootInstance = ReactDOM.createRoot(root);
-    rootInstance.render(<ChatWidget />);
+    // Mount React widget into isolated container
+    const root = ReactDOM.createRoot(container);
+    root.render(<ChatWidget />);
 })();
+
 
 
