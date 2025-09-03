@@ -24,16 +24,20 @@ export default defineConfig(({ command, mode }) => {
                 entry: path.resolve(__dirname, 'src/widget.jsx'),
                 name: 'ChatWidget',
                 fileName: (format) => `chat-widget.${format}.js`,
-                formats: ['iife']
+                formats: ['iife'], // immediately-invoked function expression
             },
             rollupOptions: {
                 external: [],
                 output: {
-                    globals: {}
+                    globals: {
+                        react: "React",
+                        "react-dom": "ReactDOM"
+                    }
                 }
             },
             cssCodeSplit: false,
-            minify: 'terser'
+            minify: 'terser',
         } : undefined
+
     }
 })
