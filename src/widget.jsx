@@ -8,10 +8,9 @@
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ChatWidget from "./pages/chat-widget/ChatWidget"; // adjust import if needed
-import "./index.css"; // make sure Tailwind is included
+import ChatWidget from "./pages/chat-widget/ChatWidget";
+import "./index.css";
 
-// Create a container div if not already present
 function initWidget() {
     if (document.getElementById("chat-widget-root")) return;
 
@@ -23,5 +22,9 @@ function initWidget() {
     root.render(<ChatWidget />);
 }
 
-// Expose initWidget globally
+// Expose globally
 window.ChatWidget = { init: initWidget };
+
+// 🚀 Auto-init on script load
+initWidget();
+
