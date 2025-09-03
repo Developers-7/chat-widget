@@ -1,4 +1,3 @@
-
 // vite.config.js
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
@@ -14,7 +13,9 @@ export default defineConfig(({ mode }) => {
     return {
         plugins: [react(), tailwindcss()],
         resolve: {
-            alias: { "@": path.resolve(__dirname, "./src") },
+            alias: {
+                "@": path.resolve(__dirname, "./src"),
+            },
         },
         build: isWidget
             ? {
@@ -22,11 +23,14 @@ export default defineConfig(({ mode }) => {
                     entry: path.resolve(__dirname, "src/widget.jsx"),
                     name: "ChatWidget",
                     fileName: () => `chat-widget.iife.js`,
-                    formats: ["iife"], // Immediately Invoked Function Expression
+                    formats: ["iife"], // must be IIFE
                 },
                 rollupOptions: {
-                    external: [], // Bundle React/ReactDOM inside
-                    output: { globals: {} },
+                    // ✅ Bundle React inside, don’t externalize
+                    external: [],
+                    output: {
+                        globals: {},
+                    },
                 },
                 cssCodeSplit: false,
                 minify: "terser",
