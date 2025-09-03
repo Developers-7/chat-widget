@@ -7,9 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "build:widget": "vite build --mode widget",
-    "build:deploy": "npm run build:widget && mkdir -p public && cp dist/chat-widget.iife.js public/chat-widget.iife.js && vite build",
-    "lint": "eslint .",
+    "build:deploy": "npm run build:widget && mkdir -p dist && cp dist/chat-widget.iife.js public/chat-widget.iife.js",
     "preview": "vite preview"
+
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
