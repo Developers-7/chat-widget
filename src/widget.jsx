@@ -9,22 +9,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import ChatWidget from "./pages/chat-widget/ChatWidget";
-import "./index.css";
 
-function initWidget() {
-    if (document.getElementById("chat-widget-root")) return;
+(function init() {
+    let root = document.getElementById("chat-widget-root");
 
-    const container = document.createElement("div");
-    container.id = "chat-widget-root";
-    document.body.appendChild(container);
+    if (!root) {
+        root = document.createElement("div");
+        root.id = "chat-widget-root";
+        document.body.appendChild(root);
+    }
 
-    const root = ReactDOM.createRoot(container);
-    root.render(<ChatWidget />);
-}
-
-// Expose globally
-window.ChatWidget = { init: initWidget };
-
-// 🚀 Auto-init on script load
-initWidget();
+    const rootInstance = ReactDOM.createRoot(root);
+    rootInstance.render(<ChatWidget />);
+})();
 
