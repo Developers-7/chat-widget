@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:widget": "vite build --mode widget",
-    "build:deploy": "npm run build:widget && mkdir -p dist && cp dist/chat-widget.iife.js public/chat-widget.iife.js",
+    "build:deploy": "npm run build:widget",
     "preview": "vite preview"
 
   },

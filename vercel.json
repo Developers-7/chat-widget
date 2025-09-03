@@ -1,12 +1,11 @@
 {
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "public" }
+      "src": "dist/chat-widget.iife.js",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/chat-widget.iife.js", "dest": "/dist/chat-widget.iife.js" }
   ]
 }
