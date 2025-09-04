@@ -23,18 +23,25 @@ export default defineConfig(({ mode }) => {
                     entry: path.resolve(__dirname, "src/widget.jsx"),
                     name: "ChatWidget",
                     fileName: () => `chat-widget.iife.js`,
-                    formats: ["iife"], // must be IIFE
+                    formats: ["iife"],
                 },
                 rollupOptions: {
-                    // ✅ Bundle React inside, don’t externalize
                     external: [],
                     output: {
                         globals: {},
+                        // Ensure CSS is inlined
+                        inlineDynamicImports: true,
                     },
                 },
                 cssCodeSplit: false,
                 minify: "terser",
+                // Output to public directory for immediate use
+                outDir: "public",
+                emptyOutDir: false,
             }
-            : undefined,
+            : {
+                // Regular app build
+                outDir: "dist",
+            },
     };
 });
