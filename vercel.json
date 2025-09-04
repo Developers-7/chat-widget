@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build:widget",
-  "outputDirectory": "public",
+  "outputDirectory": "dist",
   "routes": [
     {
       "src": "/chat-widget.iife.js",

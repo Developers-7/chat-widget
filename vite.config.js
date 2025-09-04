@@ -36,12 +36,13 @@ export default defineConfig(({ mode }) => {
                 cssCodeSplit: false,
                 minify: "terser",
                 // Output to public directory for immediate use
-                outDir: "public",
-                emptyOutDir: false,
+                outDir: "dist",
+                emptyOutDir: true,
             }
             : {
                 // Regular app build
                 outDir: "dist",
             },
+        publicDir: isWidget ? false : "public",
     };
 });

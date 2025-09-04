@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run build:widget",
-    "build:widget": "vite build --mode widget",
+    "build:widget": "vite build --mode widget && cp public/index.html dist/index.html",
     "build:app": "vite build",
     "build:deploy": "npm run build:widget",
     "preview": "vite preview"
