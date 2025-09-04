@@ -1,11 +1,18 @@
 {
-  "builds": [
-    {
-      "src": "dist/chat-widget.iife.js",
-      "use": "@vercel/static"
-    }
-  ],
+  "buildCommand": "npm run build:widget",
+  "outputDirectory": "public",
   "routes": [
-    { "src": "/chat-widget.iife.js", "dest": "/dist/chat-widget.iife.js" }
+    {
+      "src": "/chat-widget.iife.js",
+      "dest": "/chat-widget.iife.js"
+    },
+    {
+      "src": "/chat-widget.css",
+      "dest": "/chat-widget.css"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
